@@ -56,8 +56,8 @@ jobs:
           context: .
           push: true
           platforms: linux/amd64,linux/arm64
-          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/tunzy:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/tunzy:buildcache,mode=max
+          cache-from: type=gha,type=registry,ref=${{ secrets.DOCKER_USERNAME }}/tunzy:buildcache
+          cache-to: type=gha,mode=max,type=registry,ref=${{ secrets.DOCKER_USERNAME }}/tunzy:buildcache,mode=max
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/tunzy:${{ steps.vars.outputs.TAG }}
             ${{ secrets.DOCKER_USERNAME }}/tunzy:latest
